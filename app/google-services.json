@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "783080952173",
+    "project_id": "beauty-planner-9716e",
+    "storage_bucket": "beauty-planner-9716e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783080952173:android:bee4792bb8db1d19404a64",
+        "android_client_info": {
+          "package_name": "com.tcc.beautyplannercliente"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK5D_PUswEDIRKccGB7KDrpKpi447bLSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
