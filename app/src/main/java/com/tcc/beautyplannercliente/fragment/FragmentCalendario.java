@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.tcc.beautyplannercliente.R;
-import com.tcc.beautyplannercliente.activity.HorariosActivity;
+import com.tcc.beautyplannercliente.agendamento.FuncoesBuscarServicoActivity;
 import com.tcc.beautyplannercliente.util.Util;
 
 import java.text.ParseException;
@@ -205,7 +205,8 @@ public class FragmentCalendario extends Fragment implements CalendarView.OnDateC
                     dataList.add(mes);// posicao 1
                     dataList.add(ano);// posicao 2
 
-                    Intent intent = new Intent(getContext(), HorariosActivity.class);
+                    //Intent intent = new Intent(getContext(), HorariosActivity.class);
+                    Intent intent = new Intent(getContext(), FuncoesBuscarServicoActivity.class);
                     intent.putExtra("data",dataList);
 
                     startActivity(intent);

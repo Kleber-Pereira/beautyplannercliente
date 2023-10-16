@@ -1,4 +1,4 @@
-package com.tcc.beautyplannercliente.funcoes
+package com.tcc.beautyplannercliente.agendamento
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

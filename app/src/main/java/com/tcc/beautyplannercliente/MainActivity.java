@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private FragmentHome fragmentHome;
     private FragmentCalendario fragmentCalendario;
+    //private FuncoesFragment fragmentFuncoes;
+    //private FuncoesBuscarServicoActivity fragmentFuncoes;
 
     private Fragment fragment;
     private FragmentManager fragmentManager;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentHome = new FragmentHome();
         fragmentCalendario = new FragmentCalendario();
+      //     fragmentFuncoes = new FuncoesFragment();
+     //   fragmentFuncoes = new FuncoesBuscarServicoActivity();
 
         fragmentManager = getSupportFragmentManager();
 
@@ -78,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_navegacao_calendario:
 
                          fragment = fragmentCalendario;
+                        // fragment = fragmentFuncoes;
+
                          break;
                 }
 

@@ -36,6 +36,9 @@ public class HorariosActivity extends AppCompatActivity implements AdapterListVi
 
     private ArrayList<String> data = new ArrayList<String>();
 
+    private String funcoesservicoNome;
+    private String funcoesfuncionarioNome;
+
 
 
 
@@ -59,6 +62,8 @@ public class HorariosActivity extends AppCompatActivity implements AdapterListVi
 
         database = FirebaseDatabase.getInstance();
         data = getIntent().getStringArrayListExtra("data");
+        funcoesservicoNome = getIntent().getStringExtra("servicoservico");
+        funcoesfuncionarioNome = getIntent().getStringExtra("funcionarioNome");
 
 
 
@@ -142,9 +147,14 @@ public class HorariosActivity extends AppCompatActivity implements AdapterListVi
     private void buscarHorariosReservados(){
 
 
+        /*referenceBuscarHorario = database.getReference().
+                child("BD").child("Calendario").child("HorariosAgendados").
+                child(data.get(2)).child("Mes").child(data.get(1)).child("dia").child(data.get(0));*/
+
         referenceBuscarHorario = database.getReference().
                 child("BD").child("Calendario").child("HorariosAgendados").
-                child(data.get(2)).child("Mes").child(data.get(1)).child("dia").child(data.get(0));
+                child(data.get(2)).child("Mes").child(data.get(1)).child("dia").child(data.get(0)).
+                child(funcoesservicoNome).child(funcoesfuncionarioNome);
 
 
 
@@ -274,12 +284,22 @@ public class HorariosActivity extends AppCompatActivity implements AdapterListVi
 
 
 
+        /*DatabaseReference reference = database.getReference().
+                child("BD").child("Calendario").child("HorariosAgendados").
+                child(data.get(2)).child("Mes").
+                child(data.get(1)).child("dia").child(data.get(0)).child(horarios_Temp.get(posicao));*/
+
         DatabaseReference reference = database.getReference().
                 child("BD").child("Calendario").child("HorariosAgendados").
                 child(data.get(2)).child("Mes").
-                child(data.get(1)).child("dia").child(data.get(0)).child(horarios_Temp.get(posicao));
+                child(data.get(1)).child("dia").child(data.get(0)).child(funcoesservicoNome).
+                child(funcoesfuncionarioNome).child(horarios_Temp.get(posicao));
 
-
+        /*referencia
+        referenceBuscarHorario = database.getReference().
+                child("BD").child("Calendario").child("HorariosAgendados").
+                child(data.get(2)).child("Mes").child(data.get(1)).child("dia").child(data.get(0)).
+                child(funcoesservicoNome).child(funcoesfuncionarioNome);*/
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -306,6 +326,10 @@ public class HorariosActivity extends AppCompatActivity implements AdapterListVi
                         data.add(3,horarioSelecionado);
 
                         intent.putExtra("data",data);
+                        intent.putExtra("servicoservico",funcoesservicoNome);
+                        intent.putExtra("funcionarioNome",funcoesfuncionarioNome);
+
+
 
                         startActivity(intent);
 
@@ -316,8 +340,6 @@ public class HorariosActivity extends AppCompatActivity implements AdapterListVi
 
 
                     }
-
-
 
 
                 }else{
@@ -336,6 +358,9 @@ public class HorariosActivity extends AppCompatActivity implements AdapterListVi
 
 
                     intent.putExtra("data",data);
+                    intent.putExtra("servicoservico",funcoesservicoNome);
+                    intent.putExtra("funcionarioNome",funcoesfuncionarioNome);
+
 
                     startActivity(intent);
 

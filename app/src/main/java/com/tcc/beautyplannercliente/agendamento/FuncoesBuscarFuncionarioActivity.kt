@@ -1,15 +1,17 @@
-package com.tcc.beautyplannercliente.funcoes
+package com.tcc.beautyplannercliente.agendamento
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.tcc.beautyplannercliente.R
+import com.tcc.beautyplannercliente.activity.AgendamentoServicoActivity
+import com.tcc.beautyplannercliente.activity.HorariosActivity
 import com.tcc.beautyplannercliente.fragment.FragmentCalendario
 import com.tcc.beautyplannercliente.funcionario.FuncionarioAdapter
 import com.tcc.beautyplannercliente.funcionario.FuncionarioModel
@@ -17,9 +19,17 @@ import com.tcc.beautyplannercliente.funcionario.FuncionarioModel
 class FuncoesBuscarFuncionarioActivity : AppCompatActivity() {
     private lateinit var funcionarioRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
-    private lateinit var funcionarioList: ArrayList<FuncionarioModel>
+   // private lateinit var funcionarioList: ArrayList<FuncionarioModel>
+    private lateinit var funcionarioList: ArrayList<FuncoesModel>
     private lateinit var dbRef: DatabaseReference
     private lateinit var funcoesservicoNome: String
+    private lateinit var calendariodata : ArrayList<String>
+
+
+
+
+    //private FuncoesBuscarServicoActivity fragmentFuncoes;
+    private val fragment: Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +40,12 @@ class FuncoesBuscarFuncionarioActivity : AppCompatActivity() {
         funcionarioRecyclerView.setHasFixedSize(true)
         tvLoadingData = findViewById(R.id.tvLoadingData)
 
-        funcionarioList = arrayListOf<FuncionarioModel>()
+        funcionarioList = arrayListOf<FuncoesModel>()
 
         //funcoesservicoNome = ""
-        funcoesservicoNome = intent.getStringExtra("servicosServico").toString()
+        funcoesservicoNome = intent.getStringExtra("servicoservico").toString()
+
+        calendariodata = intent.getStringArrayListExtra("data") as ArrayList<String>
 
 
 
@@ -42,33 +54,43 @@ class FuncoesBuscarFuncionarioActivity : AppCompatActivity() {
     }
     private fun getFuncionarioData() {
 
+
+
         funcionarioRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Funcionarios")
+        dbRef = FirebaseDatabase.getInstance().getReference("Funcoes")
+
+
 
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 funcionarioList.clear()
                 if (snapshot.exists()){
+
                     for (funcionarioSnap in snapshot.children){
-                        val funcionarioData = funcionarioSnap.getValue(FuncionarioModel::class.java)
-                        funcionarioList.add(funcionarioData!!)
+                        val funcionarioData = funcionarioSnap.getValue(FuncoesModel::class.java)
+                        if (funcoesservicoNome == funcionarioData!!.vfuncoesservicoNome){
+                            funcionarioList.add(funcionarioData!!)
+                        }
                     }
-                    val mAdapter = FuncionarioAdapter(funcionarioList)
+                    val mAdapter = FuncoesFuncAdapter(funcionarioList)
                     funcionarioRecyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListener(object : FuncionarioAdapter.onItemClickListener{
+                    mAdapter.setOnItemClickListener(object : FuncoesFuncAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
-                            val intent = Intent(this@FuncoesBuscarFuncionarioActivity, FragmentCalendario::class.java)
+                            val intent = Intent(this@FuncoesBuscarFuncionarioActivity,
+                                HorariosActivity::class.java)
 
                             //put extras
-                            intent.putExtra("funcionarioId", funcionarioList[position].funcionarioId)
-                            intent.putExtra("funcionarioNome", funcionarioList[position].vfuncionarioNome)
-                            intent.putExtra("funcionarioTelefone", funcionarioList[position].vfuncionarioTelefone)
-                            intent.putExtra("funcionarioEmail", funcionarioList[position].vfuncionarioEmail)
-                            intent.putExtra("servicoservico",funcoesservicoNome.toString())
+                            //intent.putExtra("funcionarioId", funcionarioList[position].funcionarioId)
+                            intent.putExtra("funcionarioNome", funcionarioList[position].vfuncoesfuncionarioNome)
+                            //intent.putExtra("funcionarioTelefone", funcionarioList[position].vfuncionarioTelefone)
+                           // intent.putExtra("funcionarioEmail", funcionarioList[position].vfuncionarioEmail)
+                            intent.putExtra("servicoservico",funcoesservicoNome)
+                            //intent.putExtra("servicopreco",funcoesservicoPreco.toString())
+                            intent.putExtra("data",calendariodata)
 
 
                             startActivity(intent)

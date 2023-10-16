@@ -1,4 +1,4 @@
-package com.tcc.beautyplannercliente.funcoes
+package com.tcc.beautyplannercliente.agendamento
 
 data class FuncoesModel(
     var funcoesId: String? = null,

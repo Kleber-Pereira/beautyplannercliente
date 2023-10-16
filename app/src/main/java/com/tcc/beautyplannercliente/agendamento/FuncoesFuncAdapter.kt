@@ -1,4 +1,4 @@
-package com.tcc.beautyplannercliente.funcoes
+package com.tcc.beautyplannercliente.agendamento
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tcc.beautyplannercliente.R
 import org.w3c.dom.Text
 
-class FuncoesAdapter (private val funcoesList: ArrayList<FuncoesModel>) :
-    RecyclerView.Adapter<FuncoesAdapter.ViewHolder>() {
+class FuncoesFuncAdapter (private val funcoesList: ArrayList<FuncoesModel>) :
+    RecyclerView.Adapter<FuncoesFuncAdapter.ViewHolder>() {
 
         //var onItemClick : ((FuncoesModel) -> Unit)? = null
 
@@ -26,7 +26,7 @@ class FuncoesAdapter (private val funcoesList: ArrayList<FuncoesModel>) :
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.listar_funcoes, parent, false)
+            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.listar_funcoes_func, parent, false)
             return ViewHolder(itemView, mListener)
         }
 

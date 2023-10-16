@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".funcoes.FuncoesActivity">
+    tools:context=".agendamento.FuncoesActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Funções"
+        android:text="Agendar seu serviço"
         android:layout_marginTop="80dp"
         android:textSize="28sp"
         android:gravity="center"
@@ -23,19 +23,11 @@
         android:id="@+id/btnInsertData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nova Função"
+        android:text="Agendar"
         android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/btnFetchData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="Buscar Função"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnInsertData" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

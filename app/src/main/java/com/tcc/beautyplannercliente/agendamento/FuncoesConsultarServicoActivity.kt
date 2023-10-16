@@ -1,4 +1,4 @@
-package com.tcc.beautyplannercliente.funcoes
+package com.tcc.beautyplannercliente.agendamento
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.tcc.beautyplannercliente.R
-import com.tcc.beautyplannercliente.funcoes.FuncoesAdapter
-import com.tcc.beautyplannercliente.funcoes.FuncoesModel
+import com.tcc.beautyplannercliente.agendamento.FuncoesAdapter
+import com.tcc.beautyplannercliente.agendamento.FuncoesModel
 
 
 class FuncoesConsultarServicoActivity : AppCompatActivity() {

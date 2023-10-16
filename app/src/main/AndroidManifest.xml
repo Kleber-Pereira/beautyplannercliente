@@ -22,12 +22,17 @@
         <activity android:name=".activity.AgendamentoServicoActivity"/>
         <activity android:name=".activity.HorariosActivity"/>
         <activity android:name=".activity.AlterarRemoverServicoActivity"/>
+        <activity android:name=".fragment.ActivityCalendario"/>
 
-        <activity android:name=".funcoes.FuncoesBuscarFuncionarioActivity" />
-        <activity android:name=".funcoes.FuncoesBuscarServicoActivity" />
-        <activity android:name=".funcoes.FuncoesDetailsActivity" />
-        <activity android:name=".funcoes.FuncoesConsultarServicoActivity" />
-        <activity android:name=".funcoes.FuncoesInserirActivity" />
+
+
+        <activity android:name=".agendamento.FuncoesBuscarFuncionarioActivity" />
+        <activity android:name=".agendamento.FuncoesBuscarServicoActivity" />
+        <activity android:name=".agendamento.FuncoesDetailsActivity" />
+        <activity android:name=".agendamento.FuncoesConsultarServicoActivity" />
+
+        <activity android:name=".agendamento.FuncoesActivity"  />
+
 
 
         <activity
