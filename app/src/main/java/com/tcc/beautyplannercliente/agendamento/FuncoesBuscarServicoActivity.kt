@@ -18,10 +18,10 @@ import com.tcc.beautyplannercliente.Servicos.ServicosModel
 class FuncoesBuscarServicoActivity  : AppCompatActivity() {
     private lateinit var servicosRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
-   // private lateinit var servicosList: ArrayList<ServicosModel>
-    private lateinit var servicosList: ArrayList<FuncoesModel>
+    private lateinit var servicosList: ArrayList<ServicosModel>
+   // private lateinit var servicosList: ArrayList<FuncoesModel>
     private lateinit var funcoesList: ArrayList<FuncoesModel>
-    private lateinit var servicosiguaisList: ArrayList<FuncoesModel>
+   // private lateinit var servicosiguaisList: ArrayList<FuncoesModel>
    // private lateinit var funcionariosList: ArrayList<FuncionarioModel>
 
     private lateinit var dbRef: DatabaseReference
@@ -39,8 +39,8 @@ class FuncoesBuscarServicoActivity  : AppCompatActivity() {
         servicosRecyclerView.setHasFixedSize(true)
         tvLoadingData = findViewById(R.id.tvLoadingData)
 
-        //servicosList = arrayListOf<ServicosModel>()
-        servicosList = arrayListOf<FuncoesModel>()
+        servicosList = arrayListOf<ServicosModel>()
+       // servicosList = arrayListOf<FuncoesModel>()
       //  funcoesList = arrayListOf<FuncoesModel>()
      //   servicosiguaisList = arrayListOf<ServicosModel>()
 
@@ -55,8 +55,8 @@ class FuncoesBuscarServicoActivity  : AppCompatActivity() {
         servicosRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
-       // dbRef = FirebaseDatabase.getInstance().getReference("Servicos")
-        dbRef = FirebaseDatabase.getInstance().getReference("Funcoes")
+        dbRef = FirebaseDatabase.getInstance().getReference("Servicos")
+       // dbRef = FirebaseDatabase.getInstance().getReference("Funcoes")
       //  dbRef2 = FirebaseDatabase.getInstance().getReference("Funcoes")
 
         dbRef.addValueEventListener(object : ValueEventListener {
@@ -66,8 +66,8 @@ class FuncoesBuscarServicoActivity  : AppCompatActivity() {
                 if (snapshot.exists()){
                     for (servicosSnap in snapshot.children){
 
-                        //val servicosData = servicosSnap.getValue(ServicosModel::class.java)
-                        val servicosData = servicosSnap.getValue(FuncoesModel::class.java)
+                        val servicosData = servicosSnap.getValue(ServicosModel::class.java)
+                       // val servicosData = servicosSnap.getValue(FuncoesModel::class.java)
                         servicosList.add(servicosData!!)
 
 
@@ -114,11 +114,12 @@ class FuncoesBuscarServicoActivity  : AppCompatActivity() {
 
 
                     //looping
-                    val mAdapter = FuncoesAdapter(servicosList)
-                    //val mAdapter = ServicosAdapter(servicosiguaisList)
+                    //val mAdapter = FuncoesAdapter(servicosList)
+                    val mAdapter = ServicosAdapter(servicosList)
                     servicosRecyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListener(object : FuncoesAdapter.onItemClickListener{
+                    //mAdapter.setOnItemClickListener(object : FuncoesAdapter.onItemClickListener{
+                    mAdapter.setOnItemClickListener(object : ServicosAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
 
@@ -126,7 +127,8 @@ class FuncoesBuscarServicoActivity  : AppCompatActivity() {
 
                             //put extras
                            // intent.putExtra("servicosId", servicosList[position].servicosId)
-                            intent.putExtra("servicoservico", servicosList[position].vfuncoesservicoNome)
+                           // intent.putExtra("servicoservico", servicosList[position].vfuncoesservicoNome)
+                            intent.putExtra("servicoservico", servicosList[position].vservicosServico)
                            // intent.putExtra("servicosPreco", servicosList[position].vservicosPreco)
                             intent.putExtra("data",calendariodata)
 
