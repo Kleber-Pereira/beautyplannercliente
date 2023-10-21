@@ -184,14 +184,6 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
 
 
 
-
-
-
-
-
-
-
-
     //----------------------------------AGENDAR NO FIREBASE-------------------------------------------------
 
 
@@ -265,7 +257,7 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
         DatabaseReference databaseReference  = database.getReference().
                 child("BD").child("Calendario").child("HorariosAgendados").
                 child(data.get(2)).child("Mes").
-                child(data.get(1)).child("dia").child(data.get(0));
+                child(data.get(1)).child("dia").child(data.get(0)).child(funcoesservicoNome).child(funcoesfuncionarioNome);
 
 
         Map<String, Object> atualizacao = new HashMap<>();
