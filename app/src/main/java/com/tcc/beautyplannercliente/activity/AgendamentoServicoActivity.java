@@ -46,8 +46,8 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
     private EditText editText_Email;
     /*private CheckBox checkBox_Barba;
     private CheckBox checkBox_Cabelo;*/
-    private EditText editText_Servico;
-    private EditText editText_Funcionario;
+    private TextView editText_Servico;
+    private TextView editText_Funcionario;
     private CardView cardView_Agendar;
 
     private String funcoesservicoNome;
@@ -77,8 +77,8 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
         editText_Email = (EditText)findViewById(id.editText_AgendamentoServico_Email);
         /*checkBox_Barba = (CheckBox)findViewById(R.id.checkbox_AgendamentoServico_barba);
         checkBox_Cabelo = (CheckBox)findViewById(R.id.checkbox_AgendamentoServico_Cabelo);*/
-        editText_Servico = (EditText)findViewById(id.editText_Servico);
-        editText_Funcionario = (EditText)findViewById(id.editText_Funcionario);
+        editText_Servico = (TextView) findViewById(id.editText_Servico);
+        editText_Funcionario = (TextView) findViewById(id.editText_Funcionario);
         cardView_Agendar = (CardView)findViewById(id.cardView_AgendamentoServico_Agendar);
 
 

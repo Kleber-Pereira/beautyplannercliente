@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,8 +37,8 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
     private EditText editText_Email;
     /*private CheckBox checkBox_Barba;
     private CheckBox checkBox_Cabelo;*/
-    private EditText editText_Servico;
-    private EditText editText_Funcionario;
+    private TextView editText_Servico;
+    private TextView editText_Funcionario;
     private CardView cardView_Alterar;
     private CardView cardView_Remover;
 
@@ -72,8 +73,8 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
         editText_Email = (EditText)findViewById(R.id.editText_AlterarRemeverServico_Email);
         /*checkBox_Barba = (CheckBox)findViewById(R.id.checkbox_AlterarRemeverServico_barba);
         checkBox_Cabelo = (CheckBox)findViewById(R.id.checkbox_AlterarRemeverServico_Cabelo);*/
-        editText_Servico= (EditText)findViewById(R.id.editText_AlterarRemeverServico);
-        editText_Funcionario = (EditText)findViewById(R.id.editText_AlterarRemeverFuncionario);
+        editText_Servico= (TextView) findViewById(R.id.editText_AlterarRemeverServico);
+        editText_Funcionario = (TextView) findViewById(R.id.editText_AlterarRemeverFuncionario);
         cardView_Alterar = (CardView)findViewById(R.id.cardView_AlterarRemeverServico_Alterar);
         cardView_Remover = (CardView)findViewById(R.id.cardView_AlterarRemeverServico_Remover);
 
