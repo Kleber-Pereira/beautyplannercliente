@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tcc.beautyplannercliente.agendamento.FuncoesFragment;
 import com.tcc.beautyplannercliente.fragment.FragmentCalendario;
 import com.tcc.beautyplannercliente.fragment.FragmentHome;
 import com.tcc.beautyplannercliente.util.Permissao;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FragmentHome fragmentHome;
     private FragmentCalendario fragmentCalendario;
-    //private FuncoesFragment fragmentFuncoes;
+    private FuncoesFragment fragmentFuncoes;
     //private FuncoesBuscarServicoActivity fragmentFuncoes;
 
     private Fragment fragment;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentHome = new FragmentHome();
         fragmentCalendario = new FragmentCalendario();
-      //     fragmentFuncoes = new FuncoesFragment();
+        fragmentFuncoes = new FuncoesFragment();
      //   fragmentFuncoes = new FuncoesBuscarServicoActivity();
 
         fragmentManager = getSupportFragmentManager();
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_navegacao_calendario:
 
                          fragment = fragmentCalendario;
-                        // fragment = fragmentFuncoes;
+                         //fragment = fragmentFuncoes;
 
                          break;
                 }

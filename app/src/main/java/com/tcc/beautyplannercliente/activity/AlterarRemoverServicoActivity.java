@@ -128,7 +128,13 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
         reference = database.getReference().
                 child("BD").child("Calendario").child("HorariosAgendados").
                 child(data.get(2)).child("Mes").
-                child(data.get(1)).child("dia").child(data.get(0)).child(data.get(3)).child(funcoesservicoNome).child(funcoesfuncionarioNome);
+                child(data.get(1)).child("dia").child(data.get(0)).child(funcoesservicoNome).
+                child(funcoesfuncionarioNome).child(data.get(3));
+        /*reference = database.getReference().
+                child("BD").child("Calendario").child("HorariosAgendados").
+                child(data.get(2)).child("Mes").
+                child(data.get(1)).child("dia").child(data.get(0)).child(data.get(3)).child(funcoesservicoNome).
+                child(funcoesfuncionarioNome).child(data.get(3));*/
 
 
         if( valueEventListener == null ){
@@ -257,7 +263,8 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
         DatabaseReference databaseReference  = database.getReference().
                 child("BD").child("Calendario").child("HorariosAgendados").
                 child(data.get(2)).child("Mes").
-                child(data.get(1)).child("dia").child(data.get(0)).child(funcoesservicoNome).child(funcoesfuncionarioNome);
+                child(data.get(1)).child("dia").child(data.get(0)).child(funcoesservicoNome).
+                child(funcoesfuncionarioNome);
 
 
         Map<String, Object> atualizacao = new HashMap<>();
@@ -310,7 +317,8 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
         DatabaseReference databaseReference  = database.getReference().
                 child("BD").child("Calendario").child("HorariosAgendados").
                 child(data.get(2)).child("Mes").
-                child(data.get(1)).child("dia").child(data.get(0));
+                child(data.get(1)).child("dia").child(data.get(0)).child(funcoesservicoNome).
+                child(funcoesfuncionarioNome);;
 
 
 

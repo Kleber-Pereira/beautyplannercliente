@@ -9,6 +9,18 @@ public class Agendamento {
     private String servico;
     private String funcionario;
 
+    public Agendamento(){}
+
+    public Agendamento(String nome, String contato, boolean whatsApp, String email, String servico, String funcionario) {
+        this.nome = nome;
+        this.contato = contato;
+        this.whatsApp = whatsApp;
+        this.email = email;
+        this.servico = servico;
+        this.funcionario = funcionario;
+    }
+
+
     public String getNome() {
         return nome;
     }
@@ -57,14 +69,6 @@ public class Agendamento {
         this.funcionario = funcionario;
     }
 
-    public Agendamento(String nome, String contato, boolean whatsApp, String email, String servico, String funcionario) {
-        this.nome = nome;
-        this.contato = contato;
-        this.whatsApp = whatsApp;
-        this.email = email;
-        this.servico = servico;
-        this.funcionario = funcionario;
-    }
 
 
 }

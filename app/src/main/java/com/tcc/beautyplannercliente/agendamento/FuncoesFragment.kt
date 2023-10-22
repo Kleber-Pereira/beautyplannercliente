@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.tcc.beautyplannercliente.R
+import com.tcc.beautyplannercliente.fragment.FragmentCalendario
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -15,7 +18,7 @@ import com.tcc.beautyplannercliente.R
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private lateinit var btnInsertData: Button
-//private lateinit var btnFetchData: Button
+private lateinit var btnFetchData: Button
 /**
  * A simple [Fragment] subclass.
  * Use the [FuncaoFragment.newInstance] factory method to
@@ -48,17 +51,27 @@ public class FuncoesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnInsertData = view.findViewById(R.id.btnInsertData)
-       // btnFetchData = view.findViewById(R.id.btnFetchData)
+        btnFetchData = view.findViewById(R.id.btnFetchData)
 
         btnInsertData.setOnClickListener{
-            val intent = Intent(activity, FuncoesBuscarServicoActivity::class.java)
-            startActivity(intent)
+            /*val intent = Intent(activity, FuncoesBuscarServicoActivity::class.java)
+            startActivity(intent)*/
+            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+
+            fragmentTransaction.replace(R.id.chamacontainer, FragmentCalendario()).commit()
 
         }
-       /* btnFetchData.setOnClickListener{
-            val intent = Intent(activity, FuncoesConsultarServicoActivity::class.java)//editar
-            startActivity(intent)
-        }*/
+        btnFetchData.setOnClickListener{
+            /*val intent = Intent(activity, FuncoesConsultarServicoActivity::class.java)//editar
+            startActivity(intent)*/
+            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+
+            fragmentTransaction.replace(R.id.chamacontainer, FragmentCalendario()).commit()
+        }
 
     }
 
