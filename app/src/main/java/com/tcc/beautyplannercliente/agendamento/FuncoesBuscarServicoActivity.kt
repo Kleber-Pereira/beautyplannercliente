@@ -20,12 +20,12 @@ class FuncoesBuscarServicoActivity  : AppCompatActivity() {
     private lateinit var tvLoadingData: TextView
     private lateinit var servicosList: ArrayList<ServicosModel>
    // private lateinit var servicosList: ArrayList<FuncoesModel>
-    private lateinit var funcoesList: ArrayList<FuncoesModel>
+    //private lateinit var funcoesList: ArrayList<FuncoesModel>
    // private lateinit var servicosiguaisList: ArrayList<FuncoesModel>
    // private lateinit var funcionariosList: ArrayList<FuncionarioModel>
 
     private lateinit var dbRef: DatabaseReference
-    private lateinit var dbRef2: DatabaseReference
+    //private lateinit var dbRef2: DatabaseReference
 
 
     private lateinit var calendariodata : ArrayList<String>

@@ -30,7 +30,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.annotations.Nullable;
+import com.tcc.beautyplannercliente.R;
 import com.tcc.beautyplannercliente.modelo.Agendamento;
+import com.tcc.beautyplannercliente.modelo.TwilioService;
 import com.tcc.beautyplannercliente.util.DialogProgress;
 import com.tcc.beautyplannercliente.util.Util;
 
@@ -77,8 +79,8 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
         editText_Email = (EditText)findViewById(id.editText_AgendamentoServico_Email);
         /*checkBox_Barba = (CheckBox)findViewById(R.id.checkbox_AgendamentoServico_barba);
         checkBox_Cabelo = (CheckBox)findViewById(R.id.checkbox_AgendamentoServico_Cabelo);*/
-        editText_Servico = (TextView) findViewById(id.editText_Servico);
-        editText_Funcionario = (TextView) findViewById(id.editText_Funcionario);
+        editText_Servico = (TextView) findViewById(R.id.editText_Servico);
+        editText_Funcionario = (TextView) findViewById(R.id.editText_Funcionario);
         cardView_Agendar = (CardView)findViewById(id.cardView_AgendamentoServico_Agendar);
 
 
@@ -257,6 +259,8 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
 
     }
 
+
+
     //----------------------------------AGENDAR NO FIREBASE-------------------------------------------------
 
 
@@ -337,10 +341,57 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
 
                 if (task.isSuccessful()){
 
+                    //----twillo---
+
+
+                    String telefone = contato;
+                    String nome = editText_Nome.getText().toString();
+                    String servico = editText_Servico.getText().toString();
+                    String funcionario = editText_Funcionario.getText().toString();
+                    String dia = (data.get(0) +"/"+data.get(1)+"/"+data.get(2));
+                    String horario = (data.get(3));
+                   // String accountSid = System.getenv("AC6abb957b4af10ab40428285f56f58add");
+                   // String authToken = System.getenv("7226ace1dceb8c3f4f9edf35dd7fe025");
+                    /*Twilio.init(accountSid, authToken);
+                    Message message = Message.creator(
+                            new PhoneNumber(telefone),"MG3e0104f57d45974fd589e55519f447be",
+                            nome + ", o serviço "+ servico + " com o profissional "+ funcionario +
+                    " do dia " + data.get(0) +"/"+data.get(1)+"/"+data.get(2)+
+                    " às "+ data.get(3) +" foi agendado com sucesso pelo BeautyPlanner!"
+                    ).create();
+                    System.out.println(message.getSid());*/
+
+                   /* Twilio.init(System.getenv("AC6abb957b4af10ab40428285f56f58add"),
+                            System.getenv("7226ace1dceb8c3f4f9edf35dd7fe025"));
+                    Message message = Message.creator(
+                            new PhoneNumber("+5513974230860"),
+                            new PhoneNumber("+12563848116"),
+                            "teste").create();
+
+
+                    System.out.println(message.getSid());*/
+                    String mensagem = (nome + ", o serviço "+ servico + " com o profissional "
+                            + funcionario +
+                            " no dia "+ dia +
+                            " às "+ horario +" foi agendado com sucesso pelo BeautyPlanner!").toString();
+
+                    TwilioService.sendSms(telefone, mensagem);
+
+                   /*TwilioService.sendSms(telefone, nome + ", o serviço "+ servico + " com o profissional "+ funcionario +
+                            " no dia "+ dia +
+                            " às "+ horario +" foi agendado com sucesso pelo BeautyPlanner!");*/
+
+                    //TwilioService.sendSms(telefone, "agendado com sucesso pelo BeautyPlanner!");
+
 
                     dialogProgress.dismiss();
                     Toast.makeText(getBaseContext(),"Sucesso ao Agendar",Toast.LENGTH_LONG).show();
+
                     finish();
+
+
+
+
 
                 }else{
 

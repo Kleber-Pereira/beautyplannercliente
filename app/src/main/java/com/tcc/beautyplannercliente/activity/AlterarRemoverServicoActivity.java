@@ -319,7 +319,7 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
                 child("BD").child("Calendario").child("HorariosAgendados").
                 child(data.get(2)).child("Mes").
                 child(data.get(1)).child("dia").child(data.get(0)).child(funcoesservicoNome).
-                child(funcoesfuncionarioNome);;
+                child(funcoesfuncionarioNome);
 
 
 
