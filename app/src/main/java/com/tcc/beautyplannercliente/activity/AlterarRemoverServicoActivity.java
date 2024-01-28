@@ -318,6 +318,9 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
 
                     TwilioService.sendSms(telefone, mensagem);
 
+
+                    //-----twilio
+
                     dialogProgress.dismiss();
 
                     Toast.makeText(getBaseContext(),"Sucesso ao alterar dados",Toast.LENGTH_LONG).show();
@@ -411,6 +414,9 @@ public class AlterarRemoverServicoActivity extends AppCompatActivity implements 
                             " às "+ horario +" foi cancelado com sucesso pelo BeautyPlanner!").toString();
 
                     TwilioService.sendSms(telefone, mensagem);
+
+
+                    //---------twilio
 
                     dialogProgress.dismiss();
                     finish();
