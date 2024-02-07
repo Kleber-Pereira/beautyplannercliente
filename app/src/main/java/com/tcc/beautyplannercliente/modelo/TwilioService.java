@@ -21,9 +21,10 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 
+
 public class TwilioService {
         public static String ACCOUNT_SID ="AC6abb957b4af10ab40428285f56f58add",
-                AUTH_TOKEN = "82a1e731e260da8524d7da9cbb306382";
+                AUTH_TOKEN = "a85ef8aaea8def349f8e42bb88e05b3e";
         public static void sendSms(String phoneNumber,String message){
             OkHttpClient client = new OkHttpClient.Builder().build();
             client = new OkHttpClient.Builder()
@@ -31,8 +32,8 @@ public class TwilioService {
                         @Override
                         public okhttp3.Response intercept(Chain chain) throws IOException {
                             Request request = chain.request().newBuilder()
-                                    .addHeader("Authorization", Credentials.basic(ACCOUNT_SID, AUTH_TOKEN))
-                                    .build();
+                                    .addHeader("Authorization", Credentials.basic(ACCOUNT_SID,
+                                                    AUTH_TOKEN)).build();
                             return chain.proceed(request);
                         }
                     })

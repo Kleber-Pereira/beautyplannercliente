@@ -32,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.annotations.Nullable;
 import com.tcc.beautyplannercliente.R;
 import com.tcc.beautyplannercliente.modelo.Agendamento;
+import com.tcc.beautyplannercliente.modelo.SalvaCliente;
 import com.tcc.beautyplannercliente.modelo.TwilioService;
 import com.tcc.beautyplannercliente.util.DialogProgress;
 import com.tcc.beautyplannercliente.util.Util;
@@ -315,6 +316,7 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
 
 
         Agendamento agendamento = new Agendamento(nome,contato,whatsApp,email,servico,funcionario);
+        SalvaCliente salvacliente = new SalvaCliente(nome,contato,email);
 
 
         final DialogProgress dialogProgress = new DialogProgress();
@@ -329,6 +331,7 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
                 .child("dia").child(data.get(0)).child(funcoesservicoNome).child(funcoesfuncionarioNome);
 
 
+
         /*DatabaseReference reference = firebaseDatabase.getReference().child("BD").child("Calendario")
                 .child("HorariosAgendados").child(data.get(2)).child("Mes").child(data.get(1))
                 .child("dia").child(data.get(0));*/
@@ -339,7 +342,12 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
             public void onComplete(@NonNull Task<Void> task) {
 
 
+
                 if (task.isSuccessful()){
+
+                    DatabaseReference referencecliente = firebaseDatabase.getReference().child("Cliente").child("Servico")
+                            .child(funcoesservicoNome).child(contato);
+                    referencecliente.setValue(salvacliente);
 
                     //----twillo---
 
