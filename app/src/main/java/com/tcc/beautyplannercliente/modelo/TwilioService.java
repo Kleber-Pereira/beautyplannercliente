@@ -24,7 +24,7 @@ import retrofit2.http.Path;
 
 public class TwilioService {
         public static String ACCOUNT_SID ="AC6abb957b4af10ab40428285f56f58add",
-                AUTH_TOKEN = "a85ef8aaea8def349f8e42bb88e05b3e";
+                AUTH_TOKEN = "c38d77e33bde80102d2650609405c825";
         public static void sendSms(String phoneNumber,String message){
             OkHttpClient client = new OkHttpClient.Builder().build();
             client = new OkHttpClient.Builder()
