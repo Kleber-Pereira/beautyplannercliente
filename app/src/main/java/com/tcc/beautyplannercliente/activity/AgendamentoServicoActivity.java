@@ -316,7 +316,7 @@ public class AgendamentoServicoActivity extends AppCompatActivity implements Vie
 
 
         Agendamento agendamento = new Agendamento(nome,contato,whatsApp,email,servico,funcionario);
-        SalvaCliente salvacliente = new SalvaCliente(nome,contato,email);
+        SalvaCliente salvacliente = new SalvaCliente(nome,contato,email,servico);
 
 
         final DialogProgress dialogProgress = new DialogProgress();
