@@ -49,13 +49,25 @@
         android:textStyle="bold"/>
 
 
-            <EditText
+           <!-- <EditText
                 android:id="@+id/textView_AgendamentoServico_Numero"
                 android:layout_width="385dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
+
+            <com.santalu.maskara.widget.MaskEditText
+                android:id="@+id/textView_AgendamentoServico_Numero"
+                android:layout_width="385dp"
+                android:layout_height="60dp"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:inputType="number"
+                app:mask="+55___________"
+                app:maskCharacter="_"
+                app:maskStyle="completable" />
 
 
 
